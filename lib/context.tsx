@@ -1,9 +1,9 @@
 "use client";
 
-import { wagmiAdapter, projectId, networks } from "@/lib/config";
+import { wagmiAdapter, projectId } from "@/lib/config";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createAppKit } from "@reown/appkit/react";
-import { base } from "@reown/appkit/networks";
+import { base, baseSepolia } from "@reown/appkit/networks";
 import React, { type ReactNode } from "react";
 import { WagmiProvider } from "wagmi";
 
@@ -26,7 +26,7 @@ const metadata = {
 createAppKit({
   adapters: [wagmiAdapter],
   projectId,
-  networks,
+  networks: [base, baseSepolia],
   defaultNetwork: base,
   metadata: metadata,
   features: {
